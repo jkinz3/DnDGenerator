@@ -12,11 +12,13 @@ namespace DnDGenerator
 {
     public partial class Form1 : Form
     {
+
         Random rand = new Random();
 
-        int[] TrueScores = new int[6];
+        static int[] TrueScores = new int[6];
         int[] Scores = new int[6];
-        int[] Modifiers = new int[6];
+        static double[] Modifiers = new double[6];
+        bool isDone;
 
         public Form1()
         {
@@ -54,7 +56,7 @@ namespace DnDGenerator
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
@@ -236,22 +238,38 @@ namespace DnDGenerator
             {
                 YouMust.Text = "You must make sure you have all ability scores selected! Make sure none are empty!";
             }
-            if(anyNull == false)
+            if(anyNull == false && label1.Text != "RandomNumber")
             {
                 YouMust.Text = null;
 
+                for (int i = 0; i < 6; i++)
+                {
+                    TrueScores[i] = Scores[i];
+                    Modifiers[i] = GenerateModifiers(TrueScores[i]);
+                }
+
+                label13.Text = Convert.ToString(Modifiers[0]);
+                label14.Text = Convert.ToString(Modifiers[1]);
+                label15.Text = Convert.ToString(Modifiers[2]);
+                label16.Text = Convert.ToString(Modifiers[3]);
+                label17.Text = Convert.ToString(Modifiers[4]);
+                label18.Text = Convert.ToString(Modifiers[5]);
+
+                isDone = true;
             }
-            for(int i = 0; i < 6; i++)
-            {
-                TrueScores[i] = Scores[i];
-            }
+            
+
 
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private double GenerateModifiers(int score)
         {
-
+            double tmpMod = (score - 10) / 2;
+            double modifier = Math.Floor(tmpMod);
+            return modifier;     
         }
+
+       
     }
 }
