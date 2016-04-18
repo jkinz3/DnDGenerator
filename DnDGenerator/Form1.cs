@@ -14,6 +14,10 @@ namespace DnDGenerator
     {
         Random rand = new Random();
 
+        int[] TrueScores = new int[6];
+        int[] Scores = new int[6];
+        int[] Modifiers = new int[6];
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +31,7 @@ namespace DnDGenerator
         private void button1_Click(object sender, EventArgs e)
         {
             
-            int[] Scores = new int[6];
+            
             int counter = 0;
 
             while(counter < 6)
@@ -73,6 +77,181 @@ namespace DnDGenerator
             return randSum;
         }
 
-       
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox2.SelectedItem == comboBox1.SelectedItem)
+            {
+                comboBox2.SelectedItem = null;
+            }
+            if (comboBox3.SelectedItem == comboBox1.SelectedItem)
+            {
+                comboBox3.SelectedItem = null;
+            }
+            if (comboBox4.SelectedItem == comboBox1.SelectedItem)
+            {
+                comboBox4.SelectedItem = null;
+            }
+            if (comboBox5.SelectedItem == comboBox1.SelectedItem)
+            {
+                comboBox5.SelectedItem = null;
+            }
+            if (comboBox6.SelectedItem == comboBox1.SelectedItem)
+            {
+                comboBox6.SelectedItem = null;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == comboBox2.SelectedItem)
+            {
+                comboBox1.SelectedItem = null;
+            }
+            if (comboBox3.SelectedItem == comboBox2.SelectedItem)
+            {
+                comboBox3.SelectedItem = null;
+            }
+            if (comboBox4.SelectedItem == comboBox2.SelectedItem)
+            {
+                comboBox4.SelectedItem = null;
+            }
+            if (comboBox5.SelectedItem == comboBox2.SelectedItem)
+            {
+                comboBox5.SelectedItem = null;
+            }
+            if (comboBox6.SelectedItem == comboBox2.SelectedItem)
+            {
+                comboBox6.SelectedItem = null;
+            }
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == comboBox3.SelectedItem)
+            {
+                comboBox1.SelectedItem = null;
+            }
+            if (comboBox2.SelectedItem == comboBox3.SelectedItem)
+            {
+                comboBox2.SelectedItem = null;
+            }
+            if (comboBox4.SelectedItem == comboBox3.SelectedItem)
+            {
+                comboBox4.SelectedItem = null;
+            }
+            if (comboBox5.SelectedItem == comboBox3.SelectedItem)
+            {
+                comboBox5.SelectedItem = null;
+            }
+            if (comboBox6.SelectedItem == comboBox3.SelectedItem)
+            {
+                comboBox6.SelectedItem = null;
+            }
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == comboBox4.SelectedItem)
+            {
+                comboBox1.SelectedItem = null;
+            }
+            if (comboBox2.SelectedItem == comboBox4.SelectedItem)
+            {
+                comboBox2.SelectedItem = null;
+            }
+            if (comboBox3.SelectedItem == comboBox4.SelectedItem)
+            {
+                comboBox3.SelectedItem = null;
+            }
+            if (comboBox5.SelectedItem == comboBox4.SelectedItem)
+            {
+                comboBox5.SelectedItem = null;
+            }
+            if (comboBox6.SelectedItem == comboBox4.SelectedItem)
+            {
+                comboBox6.SelectedItem = null;
+            }
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == comboBox5.SelectedItem)
+            {
+                comboBox1.SelectedItem = null;
+            }
+            if (comboBox2.SelectedItem == comboBox5.SelectedItem)
+            {
+                comboBox2.SelectedItem = null;
+            }
+            if (comboBox3.SelectedItem == comboBox5.SelectedItem)
+            {
+                comboBox3.SelectedItem = null;
+            }
+            if (comboBox4.SelectedItem == comboBox5.SelectedItem)
+            {
+                comboBox4.SelectedItem = null;
+            }
+            if (comboBox6.SelectedItem == comboBox5.SelectedItem)
+            {
+                comboBox6.SelectedItem = null;
+            }
+
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == comboBox6.SelectedItem)
+            {
+                comboBox1.SelectedItem = null;
+            }
+            if (comboBox2.SelectedItem == comboBox6.SelectedItem)
+            {
+                comboBox2.SelectedItem = null;
+            }
+            if (comboBox3.SelectedItem == comboBox6.SelectedItem)
+            {
+                comboBox3.SelectedItem = null;
+            }
+            if (comboBox4.SelectedItem == comboBox6.SelectedItem)
+            {
+                comboBox4.SelectedItem = null;
+            }
+            if (comboBox5.SelectedItem == comboBox6.SelectedItem)
+            {
+                comboBox5.SelectedItem = null;
+            }
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            bool anyNull = true;
+            if (comboBox1.SelectedItem != null && comboBox2.SelectedItem != null && comboBox3.SelectedItem != null && comboBox4.SelectedItem != null && comboBox5.SelectedItem != null && comboBox6.SelectedItem != null )
+            {
+                anyNull = false;
+            }
+            if(anyNull == true)
+            {
+                YouMust.Text = "You must make sure you have all ability scores selected! Make sure none are empty!";
+            }
+            if(anyNull == false)
+            {
+                YouMust.Text = null;
+
+            }
+            for(int i = 0; i < 6; i++)
+            {
+                TrueScores[i] = Scores[i];
+            }
+
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
